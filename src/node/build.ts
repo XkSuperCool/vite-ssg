@@ -1,5 +1,5 @@
 import * as path from 'path'
-import * as fse from 'fs-extra'
+import fse from 'fs-extra'
 import { build as viteBuild } from 'vite'
 import type { InlineConfig } from 'vite'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
@@ -32,6 +32,7 @@ export async function bundle(root: string) {
   const serverbuild = () => {
     return viteBuild(resolveViteConfig(true))
   }
+  
   return (await Promise.all([clientBuild(), serverbuild()])) as [
     RollupOutput,
     RollupOutput
