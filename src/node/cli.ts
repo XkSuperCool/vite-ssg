@@ -13,7 +13,7 @@ cli
 	.action(async (root: string) => {
 		root = root ? path.resolve(root) : process.cwd()
 		const server = await createDevServe(root)
-		await server.listen(3000)
+		await server.listen()
 		server.printUrls()
 	})
 
