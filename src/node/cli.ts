@@ -1,7 +1,6 @@
 import { cac } from 'cac'
 import * as path from 'path'
 import { build } from './build'
-import { createDevServe } from './dev'
 
 const version = require('../../package.json').version
 
@@ -12,6 +11,7 @@ cli
 	.alias('dev')
 	.action(async (root: string) => {
 		root = root ? path.resolve(root) : process.cwd()
+		const { createDevServe } = await import('./dev')
 		async function createServer() {
 			const server = await createDevServe(root, async () => {
 				await server.close()
