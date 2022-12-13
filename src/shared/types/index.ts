@@ -31,7 +31,13 @@ interface ThemeConfig {
 
 export interface UserConfig {
 	title?: string
-	description: string
+	description?: string
 	themeConfig?: ThemeConfig
 	vite?: ViteUserConfig
+}
+
+export interface SiteConfig {
+	root: string
+	configPath: string
+	siteData: UserConfig
 }

@@ -12,9 +12,16 @@ cli
 	.alias('dev')
 	.action(async (root: string) => {
 		root = root ? path.resolve(root) : process.cwd()
-		const server = await createDevServe(root)
-		await server.listen()
-		server.printUrls()
+		async function createServer() {
+			const server = await createDevServe(root, async () => {
+				await server.close()
+				await createServer()
+			})
+			await server.listen()
+			server.printUrls()
+		}
+
+		await createServer()
 	})
 
 cli
