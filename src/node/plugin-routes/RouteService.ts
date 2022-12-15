@@ -36,10 +36,11 @@ export class RouteService {
 	generatorRouteCode() {
 		const code = `
 		import React from 'react'
+		import loadable from '@loadable/component'
 		${
 			this.#routeData
 				.map((route, index) => {
-					return `import Route${index} from '${route.absolutePath}'`
+					return `const Route${index} = loadable(() => import('${route.absolutePath}'))`
 				})
 				.join('\n')
 		}
