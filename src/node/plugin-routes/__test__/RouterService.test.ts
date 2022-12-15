@@ -32,8 +32,9 @@ describe('测试 RouterService', () => {
 		expect(code).toMatchInlineSnapshot(`
 			"
 					import React from 'react'
-					import Route0 from '/Users/liukai/Desktop/vite-ssg/src/node/plugin-routes/__test__/fixtures/a/index.ts'
-			import Route1 from '/Users/liukai/Desktop/vite-ssg/src/node/plugin-routes/__test__/fixtures/index.ts'
+					import loadable from '@loadable/component'
+					const Route0 = loadable(() => import('/Users/liukai/Desktop/vite-ssg/src/node/plugin-routes/__test__/fixtures/a/index.ts'))
+			const Route1 = loadable(() => import('/Users/liukai/Desktop/vite-ssg/src/node/plugin-routes/__test__/fixtures/index.ts'))
 					
 					export const routes = [
 						{ path: '/a/', element: React.createElement(Route0)},
