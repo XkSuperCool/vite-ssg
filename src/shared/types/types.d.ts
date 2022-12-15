@@ -3,3 +3,8 @@ declare module 'island:site-data' {
 	const config: UserConfig
 	export default config
 }
+
+declare module 'island:routes' {
+	import type { RouteObject } from 'react-router-dom'
+	export const routes: RouteObject[]
+}

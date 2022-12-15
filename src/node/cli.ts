@@ -1,5 +1,6 @@
 import { cac } from 'cac'
 import * as path from 'path'
+import { resolveConfig } from './config'
 import { build } from './build'
 
 const version = require('../../package.json').version
@@ -29,7 +30,8 @@ cli
 	.action(async (root: string) => {
 		try {
 			root = path.resolve(root)
-			await build(root)
+			const config = await resolveConfig(root, 'build', 'production')
+			await build(root, config)
 		} catch(e) {
 			console.log(e)
 		}

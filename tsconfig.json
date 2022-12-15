@@ -7,7 +7,10 @@
 		"baseUrl": "src",
 		"jsx": "react-jsx",
 		"declaration": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"paths": {
+			"@runtime": ["runtime/index.ts"]
+		}
 	},
 	"include": ["src"]
 }
