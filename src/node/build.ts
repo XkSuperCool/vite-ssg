@@ -4,16 +4,15 @@ import { build as viteBuild } from 'vite'
 import type { InlineConfig } from 'vite'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
 import type { RollupOutput } from 'rollup'
-import react from '@vitejs/plugin-react'
 import type { SiteConfig } from 'shared/types'
-import { pluginConfig } from './plugin-island/config'
+import { createVitePlugins } from './vitePlugins'
 
 export async function bundle(root: string, config: SiteConfig) {
   const resolveViteConfig = (isServerBuild: boolean): InlineConfig => {
     return {
       root,
       mode: 'production',
-      plugins: [react(), pluginConfig(config)],
+      plugins: createVitePlugins(config),
       ssr: {
         noExternal: ['react-router-dom']
       },
