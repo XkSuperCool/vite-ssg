@@ -4,6 +4,7 @@ import rehypePluginSlug from 'rehype-slug'
 import rehypePluginAutolinkHeadings from 'rehype-autolink-headings'
 import remarkPluginMDXFrontMatter from 'remark-mdx-frontmatter'
 import remarkPluginFrontmatter from 'remark-frontmatter'
+import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper'
 
 export function pluginMdxRollup() {
 	return [
@@ -15,6 +16,7 @@ export function pluginMdxRollup() {
 			],
 			rehypePlugins: [
 				rehypePluginSlug,
+				rehypePluginPreWrapper,
 				[
 					rehypePluginAutolinkHeadings,
 					{

@@ -19,6 +19,7 @@
   "devDependencies": {
     "@playwright/test": "^1.26.1",
     "@types/fs-extra": "^9.0.13",
+    "@types/hast": "^2.3.4",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
@@ -28,6 +29,7 @@
     "tsup": "^6.5.0",
     "tsx": "^3.12.1",
     "typescript": "^4.9.3",
+    "unist-util-visit": "^4.1.1",
     "vitest": "^0.25.3"
   },
   "dependencies": {
@@ -46,6 +48,7 @@
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-mdx-frontmatter": "^2.1.1",
+    "unified": "^10.1.2",
     "vite": "^3.2.4"
   }
 }
