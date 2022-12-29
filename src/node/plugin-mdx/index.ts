@@ -1,8 +1,8 @@
 import type { Plugin } from 'vite'
 import { pluginMdxRollup } from './pluginMdxRollup'
 
-export function createPluginMdx() {
+export async function createPluginMdx() {
 	return [
-		pluginMdxRollup()
+		await pluginMdxRollup()
 	]
 }

@@ -8,11 +8,11 @@ import type { SiteConfig } from 'shared/types'
 import { createVitePlugins } from './vitePlugins'
 
 export async function bundle(root: string, config: SiteConfig) {
-  const resolveViteConfig = (isServerBuild: boolean): InlineConfig => {
+  const resolveViteConfig = async (isServerBuild: boolean): Promise<InlineConfig> => {
     return {
       root,
       mode: 'production',
-      plugins: createVitePlugins(config),
+      plugins: await createVitePlugins(config),
       ssr: {
         noExternal: ['react-router-dom']
       },
@@ -29,12 +29,12 @@ export async function bundle(root: string, config: SiteConfig) {
     }
   }
 
-  const clientBuild = () => {
-    return viteBuild(resolveViteConfig(false))
+  const clientBuild = async () => {
+    return viteBuild(await resolveViteConfig(false))
   }
 
-  const serverbuild = () => {
-    return viteBuild(resolveViteConfig(true))
+  const serverbuild = async () => {
+    return viteBuild(await resolveViteConfig(true))
   }
   
   return (await Promise.all([clientBuild(), serverbuild()])) as [

@@ -5,12 +5,12 @@ import { pluginConfig } from './plugin-island/config'
 import { pluginRoutes } from './plugin-routes'
 import { createPluginMdx } from './plugin-mdx'
 
-export function createVitePlugins(config: SiteConfig, restart?: () => void) {
+export async function createVitePlugins(config: SiteConfig, restart?: () => void) {
 	return [
 		pluginIndexHtml(),
 		react(),
 		pluginConfig(config, restart),
 		pluginRoutes({ root: config.root }),
-		createPluginMdx()
+		await createPluginMdx()
 	]
 }
