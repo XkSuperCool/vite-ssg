@@ -11,13 +11,12 @@ export function pluginMdxHMR(): Plugin {
 		},
 		async transform(code, id, opts) {
 			if (/\.mdx?$/.test(id)) {
-				debugger
 				assert(typeof viteReactPlugin.transform === 'function')
-				const result = await viteReactPlugin.transform?.call(this, code, id, opts)
+				// + ?.jsx, 不能处理 .mdx 所以改为 .jsx
+				const result = await viteReactPlugin.transform?.call(this, code, id + '?.jsx', opts)
 				if (result && typeof result === 'object' && !result.code.includes('import.meta.hot.accept(')) {
 					result.code += 'import.meta.hot.accept()'
 				}
-
 				return result
 			}
 		}
