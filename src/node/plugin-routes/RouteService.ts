@@ -33,14 +33,16 @@ export class RouteService {
 		})
 	}
 
-	generatorRouteCode() {
+	generatorRouteCode(ssr: boolean) {
 		const code = `
 		import React from 'react'
-		import loadable from '@loadable/component'
+		${ssr ? '' : "import loadable from '@loadable/component';"}
 		${
 			this.#routeData
 				.map((route, index) => {
-					return `const Route${index} = loadable(() => import('${route.absolutePath}'))`
+					return ssr
+						? `import Route${index} from '${route.absolutePath}'`
+						: `const Route${index} = loadable(() => import('${route.absolutePath}'))`
 				})
 				.join('\n')
 		}

@@ -2,7 +2,8 @@ import type { Plugin } from 'vite'
 import { RouteService } from './RouteService';
 
 interface PluginOptios {
-	root: string
+	root: string,
+	ssr: boolean
 }
 
 const CONVENTIONAL_ROUTE_ID = 'island:routes';
@@ -21,7 +22,7 @@ export function pluginRoutes(options: PluginOptios): Plugin {
 		},
 		load(id) {
 			if (id === '\0' + CONVENTIONAL_ROUTE_ID) {
-				return routeService.generatorRouteCode()
+				return routeService.generatorRouteCode(options.ssr)
 			}
 		}
 	}
