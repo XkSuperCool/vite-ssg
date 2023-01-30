@@ -1,11 +1,24 @@
-import { Context } from '@runtime'
+import { Context, usePageData } from '@runtime'
 
 export function Layout() {
+	const pageData = usePageData()
+	const { pageType } = pageData
+
+	function getContent() {
+		if (pageType === 'home') {
+			return 'home'
+		} else if (pageType === 'doc') {
+			return <Context />
+		} else {
+			return '404'
+		}
+	}
+
 	return (
 		<div>
-			<h1 color='red' p="2" m="4">Layout SSG</h1>
+			<div mb="10" text="red 10">Nav</div>
 			<div>
-				<Context />
+				{getContent()}
 			</div>
 		</div>
 	)

@@ -4,6 +4,7 @@
 		"target": "ESNext",
 		"module": "commonjs",
 		"rootDir": "src",
+		// 设置文件查找的基准路径，可以用于解决烦人的 "../../"
 		"baseUrl": "src",
 		"jsx": "react-jsx",
 		"declaration": true,

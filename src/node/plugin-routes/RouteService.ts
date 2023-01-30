@@ -51,7 +51,11 @@ export class RouteService {
 			${
 				this.#routeData
 					.map((route, index) => {
-						return `{ path: '${route.routerPath}', element: React.createElement(Route${index})}`
+						return `{
+							path: '${route.routerPath}',
+							element: React.createElement(Route${index}),
+							preload: () => import('${route.absolutePath}')
+						}`
 					})
 					.join(',\n')
 			}

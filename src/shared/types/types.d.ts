@@ -6,5 +6,9 @@ declare module 'island:site-data' {
 
 declare module 'island:routes' {
 	import type { RouteObject } from 'react-router-dom'
-	export const routes: RouteObject[]
+	import type { PageModule } from 'shared/types'
+
+	export const routes: (RouteObject & {
+		preload: () => Promise<PageModule>
+	})[]
 }
