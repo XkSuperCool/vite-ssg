@@ -12,3 +12,8 @@ declare module 'island:routes' {
 		preload: () => Promise<PageModule>
 	})[]
 }
+
+declare module '*.scss' {
+	const classes: { [key: string]: string }
+	export default classes
+}

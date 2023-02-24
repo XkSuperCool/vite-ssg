@@ -1,4 +1,7 @@
 import { Context, usePageData } from '@runtime'
+import '../style/base.css'
+import '../style/vars.css'
+import { Nav } from '../components/Nav'
 
 export function Layout() {
 	const pageData = usePageData()
@@ -16,7 +19,9 @@ export function Layout() {
 
 	return (
 		<div>
-			<div mb="10" text="red 10">Nav</div>
+			<div>
+				<Nav />
+			</div>
 			<div>
 				{getContent()}
 			</div>

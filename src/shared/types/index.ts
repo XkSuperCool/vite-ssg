@@ -1,7 +1,7 @@
 import { ComponentType } from 'react'
 import type { UserConfig as ViteUserConfig } from 'vite'
 
-interface NavItemWithLink {
+export interface NavItemWithLink {
 	text: string
 	link: string
 }
