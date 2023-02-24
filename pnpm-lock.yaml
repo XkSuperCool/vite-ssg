@@ -33,6 +33,7 @@ specifiers:
   rollup: ^3.4.0
   sass: ^1.58.3
   shiki: ^0.12.1
+  sirv: ^2.0.2
   tsup: ^6.5.0
   tsx: ^3.12.1
   typescript: ^4.9.3
@@ -64,6 +65,7 @@ dependencies:
   remark-gfm: 3.0.1
   remark-mdx-frontmatter: 2.1.1
   shiki: 0.12.1
+  sirv: 2.0.2
   unified: 10.1.2
   unocss: 0.49.1_rollup@3.8.1+vite@3.2.5
   vfile-message: 3.1.3

@@ -11,6 +11,7 @@ async function renderInBrowser() {
 	}
 
 	const pageData = await initPageData(location.pathname)
+	
 	createRoot(el).render(
 		<DataContext.Provider value={pageData}>
 			<BrowserRouter>

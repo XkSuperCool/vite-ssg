@@ -6,16 +6,16 @@ export interface NavItemWithLink {
 	link: string
 }
 
-type SidebarItem = 
+export type SidebarItem = 
 	| { text: string, link: string }
 	| { text: string, link?: string, items: SidebarItem }
 
-interface SidebarGroup {
+export interface SidebarGroup {
 	text?: string
 	items: SidebarItem[]
 }
 
-interface Sidebar {
+export interface Sidebar {
 	[path: string]: SidebarGroup[]
 }
 

@@ -1,7 +1,9 @@
 import { join } from 'path'
+// import fse from 'fs-extra'
 import { PACKAGE_ROOT } from 'node/constants'
 import type { SiteConfig } from 'shared/types'
 import type { Plugin } from 'vite'
+// import sirv from 'sirv'
 
 const SITE_DATA_ID = 'island:site-data'
 
@@ -10,6 +12,7 @@ export function pluginConfig(config: SiteConfig, restart?: () => void): Plugin {
 		name: 'island:config',
 		config() {
 			return {
+				root: PACKAGE_ROOT,
 				resolve: {
 					alias: {
 						'@runtime': join(PACKAGE_ROOT, 'src', 'runtime', 'index.ts')
@@ -38,6 +41,12 @@ export function pluginConfig(config: SiteConfig, restart?: () => void): Plugin {
 			if (isRestart) {
 				restart()
 			}
+		},
+		configureServer(serve) {
+			// const publishDir = join(config.root, 'public')
+			// if (fse.pathExistsSync(publishDir)) {
+			// 	 serve.middlewares.use(sirv(publishDir))
+			// }
 		}
 	}
 }
