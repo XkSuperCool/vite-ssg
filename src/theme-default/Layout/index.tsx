@@ -1,6 +1,7 @@
 import { usePageData } from '@runtime'
 import '../style/base.css'
 import '../style/vars.css'
+import '../style/doc.css'
 import { Nav } from '../components/Nav'
 import { HomeLayout } from './HomeLayout'
 import { DocLayout } from './DocLayout'
@@ -24,9 +25,9 @@ export function Layout() {
 			<div>
 				<Nav />
 			</div>
-			<div>
+			<section style={{ paddingTop: 'var(--island-nav-height)' }}>
 				{getContent()}
-			</div>
+			</section>
 		</div>
 	)
 }

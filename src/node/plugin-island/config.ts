@@ -1,9 +1,9 @@
 import { join } from 'path'
-// import fse from 'fs-extra'
+import fse from 'fs-extra'
 import { PACKAGE_ROOT } from 'node/constants'
 import type { SiteConfig } from 'shared/types'
 import type { Plugin } from 'vite'
-// import sirv from 'sirv'
+import sirv from 'sirv'
 
 const SITE_DATA_ID = 'island:site-data'
 
@@ -43,10 +43,10 @@ export function pluginConfig(config: SiteConfig, restart?: () => void): Plugin {
 			}
 		},
 		configureServer(serve) {
-			// const publishDir = join(config.root, 'public')
-			// if (fse.pathExistsSync(publishDir)) {
-			// 	 serve.middlewares.use(sirv(publishDir))
-			// }
+			const publishDir = join(config.root, 'public')
+			if (fse.pathExistsSync(publishDir)) {
+				 serve.middlewares.use(sirv(publishDir))
+			}
 		}
 	}
 }

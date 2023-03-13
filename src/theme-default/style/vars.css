@@ -91,6 +91,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  --island-aside-width: 268px;
   --island-c-bg: var(--island-c-white);
   --island-c-bg-soft: var(--island-c-white-soft);
   --island-c-bg-mute: var(--island-c-white-mute);
