@@ -13,7 +13,8 @@ export async function initPageData(routerPath: string): Promise<PageData> {
 			siteData,
 			pageType: moduleInfo.frontmatter?.pageType ?? 'doc',
 			frontMatter: moduleInfo.frontmatter,
-			pagePath: routerPath
+			pagePath: routerPath,
+			toc: moduleInfo.toc
 		}
 	}
 	return {
