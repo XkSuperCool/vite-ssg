@@ -1,20 +1,23 @@
 import { useEffect, useRef } from 'react'
 import type { Header } from 'shared/types'
 import { bindingAsideScroll, scrollToTarget } from '../../logic/asideScroll'
+import { useHeaders } from '../../logic/useHeaders'
 
 interface AsideProps {
 	headers: Header[]
 }
 
 export function Aside(props: AsideProps) {
-	const { headers = [] } = props
-	const hasOutline = headers.length > 0
+	const { headers: rawHeaders = [] } = props
 	const markerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const unbinding = bindingAsideScroll()
     return unbinding
   }, [])
+
+  const headers = useHeaders(rawHeaders)
+	const hasOutline = headers.length > 0
 
 	const renderHeader = (header: Header) => {
     return (
