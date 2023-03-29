@@ -1,4 +1,4 @@
-import fs from 'fast-glob'
+import fg from 'fast-glob'
 import * as path from 'path'
 import { normalizePath } from 'vite'
 
@@ -16,7 +16,7 @@ export class RouteService {
 	}
 
 	init() {
-		const files = fs.sync(['**/*.{js,jsx,ts,tsx,md,mdx}'], {
+		const files = fg.sync(['**/*.{js,jsx,ts,tsx,md,mdx}'], {
 			cwd: this.#scanDir,
 			absolute: true,
 			ignore: ['**/build/**', 'island.config.ts', '**/node_modules/**']

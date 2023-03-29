@@ -95,3 +95,7 @@ export interface PageModule {
 	frontmatter?: FrontMatter
 	toc?: Header[]
 }
+
+export type PropsWithIsland = {
+  __island?: boolean;
+}

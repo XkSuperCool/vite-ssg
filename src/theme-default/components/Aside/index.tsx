@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import type { Header } from 'shared/types'
+import type { Header, PropsWithIsland } from 'shared/types'
 import { bindingAsideScroll, scrollToTarget } from '../../logic/asideScroll'
 import { useHeaders } from '../../logic/useHeaders'
 
@@ -7,7 +7,7 @@ interface AsideProps {
 	headers: Header[]
 }
 
-export function Aside(props: AsideProps) {
+export function Aside(props: AsideProps & PropsWithIsland) {
 	const { headers: rawHeaders = [] } = props
 	const markerRef = useRef<HTMLDivElement>(null)
 

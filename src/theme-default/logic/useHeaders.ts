@@ -9,7 +9,6 @@ export function useHeaders(initHeaders: Header[]) {
 		if (import.meta.env.DEV) {
 			// @ts-ignore
 			import.meta.hot.on('mdx-changed', ({ filePath }: { filePath: string }) => {
-				console.log(filePath)
 				import(/*! @vite-ignore */ `${filePath}?import&t=${Date.now()}`).then((res) => {
 					setHeaders(res.toc)
 				})

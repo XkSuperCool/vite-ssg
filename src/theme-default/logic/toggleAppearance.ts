@@ -13,8 +13,8 @@ const updateAppearance = () => {
 }
 
 if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-	updateAppearance()
 	classList = document.documentElement.classList
+	updateAppearance()
 	window.addEventListener('storage', updateAppearance);
 }
 

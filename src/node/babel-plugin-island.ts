@@ -5,6 +5,8 @@ import { types } from '@babel/core'
 import { MASK_SPLITTER } from './constants'
 
 export default declare(api => {
+	api.assertVersion(7)
+
 	const visitor: Visitor<PluginPass> = {
 		JSXOpeningElement(path, state) {
 			const name = path.node.name

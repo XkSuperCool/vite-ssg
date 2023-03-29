@@ -2,3 +2,4 @@ dist
 docs/.temp
 docs/build
 node_modules
+vendors
