@@ -19,7 +19,7 @@ export async function bundle(root: string, config: SiteConfig) {
       },
       build: {
         ssr: isServerBuild,
-        outDir: isServerBuild ? '.temp' : 'build',
+        outDir: path.join(root, isServerBuild ? '.temp' : 'build'),
         rollupOptions: {
           input: isServerBuild ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {

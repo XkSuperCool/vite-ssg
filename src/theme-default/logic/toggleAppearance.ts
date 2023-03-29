@@ -1,6 +1,6 @@
 const APPEARANCE_KEY = 'appearance'
 
-const classList = document.documentElement.classList
+let classList: DOMTokenList = null
 
 const setClassList = (isDark = false) => {
 	classList[isDark ? 'add' : 'remove']('dark')
@@ -14,6 +14,7 @@ const updateAppearance = () => {
 
 if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
 	updateAppearance()
+	classList = document.documentElement.classList
 	window.addEventListener('storage', updateAppearance);
 }
 

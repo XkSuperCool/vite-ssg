@@ -15,7 +15,7 @@ export function MenuItem(item: NavItemWithLink) {
 
 export function Nav() {
   const { siteData } = usePageData();
-  const nav = siteData.themeConfig.nav || [];
+  const nav = siteData?.themeConfig.nav || [];
   return (
     <header fixed="~" pos="t-0 l-0" w="full" z="10">
       <div
